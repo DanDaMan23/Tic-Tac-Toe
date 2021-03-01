@@ -25,5 +25,8 @@ void print_board(std::vector<char> board) {
         std::cout << board[i] << " ";
     }
     std::cout << "\n\n";
+}
 
+bool valid_move(int move_pos, std::vector<char> board) {
+    return (board[move_pos] != 'X' && board[move_pos] != 'O') && (move_pos >= 0 && move_pos <= 8);
 }
