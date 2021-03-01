@@ -10,7 +10,7 @@ int main () {
     std::cout << "Tic-Tac-Toe\n\n";
 
     const char PLAYER_X = 'X';
-    const char PLAYER_Y = 'Y';
+    const char PLAYER_O = 'O';
 
     bool is_player_x_turn = true;
 
@@ -21,10 +21,20 @@ int main () {
     // Make a move
 
     while (!determined_winner(board) ) {
-        std::cout << "Make a move: ";
-        std::cin >> player_move;
+        if (is_player_x_turn) {
+            std::cout << "Player X turn\n";
+            std::cout << "Make a move: ";
+            std::cin >> player_move;
+            board[player_move] = PLAYER_X;
+        }
+        else {
+            std::cout << "Player O turn\n";
+            std::cout << "Make a move: ";
+            std::cin >> player_move;
+            board[player_move] = PLAYER_O;
+        }
 
-        board[player_move] = PLAYER_X;
+        is_player_x_turn = !is_player_x_turn;
 
         print_board(board);
     }
